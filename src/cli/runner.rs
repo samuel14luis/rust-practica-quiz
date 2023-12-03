@@ -1,6 +1,6 @@
 use std::thread;
 
-#[path = "../exercises/first_fibonacci.rs"]
+#[path = "../exercises/fibonacci.rs"]
 mod fibonacci;
 
 #[path = "../exercises/word_count.rs"]
