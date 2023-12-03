@@ -1,10 +1,13 @@
 use std::io;
 
+#[path = "../utils/utils.rs"]
+mod utils;
+
 pub fn get_title() -> &'static str {
     return "Fibonacci";
 }
 
-pub fn fibonacci_first_n() {
+pub fn run() {
     println!("Ingresa cuantos números de fibonacci deseas ver.");
 
     let mut n = String::new();
@@ -31,4 +34,6 @@ pub fn fibonacci_first_n() {
 
     print!("Los primeros {} números de fibonacci son: \n", n);
     println!("{:?}", fib);
+
+    utils::show_press_enter();
 }

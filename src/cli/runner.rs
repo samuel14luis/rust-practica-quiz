@@ -3,17 +3,22 @@ use std::thread;
 #[path = "../exercises/first_fibonacci.rs"]
 mod fibonacci;
 
+#[path = "../exercises/word_count.rs"]
+mod word_count;
+
 pub fn run() {
 
     // arreglo de items del menú
     let menu_items = vec![
         fibonacci::get_title(),
+        word_count::get_title(),
         "Salir",
     ];
 
     // arreglo de funciones a ejecutar
     let func_items: Vec<fn()> = vec![
-        fibonacci::fibonacci_first_n,
+        fibonacci::run,
+        word_count::run,
         stop,
     ];
 
