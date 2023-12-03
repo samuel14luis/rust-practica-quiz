@@ -1,3 +1,6 @@
+#[path = "./cli/runner.rs"]
+mod runner;
+
 fn main() {
-    println!("Hello, world!");
+    runner::run();
 }
