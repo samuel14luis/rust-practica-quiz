@@ -6,12 +6,36 @@ mod fibonacci;
 #[path = "../exercises/word_count.rs"]
 mod word_count;
 
+#[path = "../exercises/palindromes.rs"]
+mod palindromes;
+
+#[path = "../exercises/binary_search.rs"]
+mod binary_search;
+
+#[path = "../exercises/vowels.rs"]
+mod vowels;
+
+#[path = "../exercises/prime_numbers.rs"]
+mod prime_numbers;
+
+#[path = "../exercises/insertion_sort.rs"]
+mod insertion_sort;
+
+#[path = "../exercises/linear_search.rs"]
+mod linear_search;
+
 pub fn run() {
 
     // arreglo de items del menú
     let menu_items = vec![
         fibonacci::get_title(),
         word_count::get_title(),
+        palindromes::get_title(),
+        binary_search::get_title(),
+        vowels::get_title(),
+        prime_numbers::get_title(),
+        insertion_sort::get_title(),
+        linear_search::get_title(),
         "Salir",
     ];
 
@@ -19,6 +43,12 @@ pub fn run() {
     let func_items: Vec<fn()> = vec![
         fibonacci::run,
         word_count::run,
+        palindromes::run,
+        binary_search::run,
+        vowels::run,
+        prime_numbers::run,
+        insertion_sort::run,
+        linear_search::run,
         stop,
     ];
 
@@ -60,7 +90,7 @@ fn print_menu(menu_items: Vec<&str>) {
     clean_screen();
     println!("Selecciona una opción:");
     for (i, item) in menu_items.iter().enumerate() {
-        ms_sleep(170);
+        ms_sleep(if menu_items.len() <= 5 { 150 } else { 90 } );
         println!("{}. {}", i + 1, item);
     }
 }
