@@ -10,11 +10,7 @@ pub fn get_title() -> &'static str {
 pub fn run() {
     println!("Ingresa el Texto a Evaluar:");
 
-    let mut data = String::new();
-
-    io::stdin()
-        .read_line(&mut data)
-        .expect("Falla al leer la linea");
+    let data = utils::read_string();
 
     let count = word_count(&data);
     

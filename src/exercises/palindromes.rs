@@ -10,11 +10,7 @@ pub fn get_title() -> &'static str {
 pub fn run() {
     println!("Ingresa el texto a evaluar:");
 
-    let mut text: String = String::new();
-
-    io::stdin()
-        .read_line(&mut text)
-        .expect("Falla al leer la linea");
+    let text: String = utils::read_string();
 
     println!("El texto ingresado es: {}", text.trim());
 

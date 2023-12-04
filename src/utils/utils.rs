@@ -88,3 +88,13 @@ pub fn read_i32() -> i32 {
 
     return n;
 }
+
+pub fn read_string() -> String {
+    let mut text: String = String::new();
+    
+    io::stdin()
+        .read_line(&mut text)
+        .expect("Falla al leer la linea");
+
+    return text.trim().to_string();
+}
