@@ -1,4 +1,5 @@
 use std::io;
+use std::time::{Instant, Duration};
 
 #[path = "../utils/utils.rs"]
 mod utils;
@@ -8,7 +9,46 @@ pub fn get_title() -> &'static str {
 }
 
 pub fn run() {
-    println!("TODO: Números primos");
+    println!("Ingresa cuantos números primos deseas ver.");
+
+    let mut n = String::new();
+
+    io::stdin()
+        .read_line(&mut n)
+        .expect("Falla al leer la linea");
+
+    let n: usize = n
+        .trim()
+        .parse()
+        .expect("Se ingréso un valor no numérico");
+
+
+    let start = Instant::now();
+    let mut primes = vec![];
+
+    let mut i = 2;
+    while primes.len() < n {
+        let mut is_prime = true;
+        for prime in &primes {
+            if i % prime == 0 {
+                is_prime = false;
+                break;
+            }
+        }
+
+        if is_prime {
+            primes.push(i);
+        }
+
+        i += 1;
+    }
+
+    let duration: Duration = start.elapsed();
+
+    print!("Los primeros {} números primos son: \n", n);
+    println!("{:?}", primes);
+
+    utils::show_duration(duration);
 
     utils::show_press_enter();
 }

@@ -14,15 +14,15 @@ pub fn show_duration(duration: Duration) {
     let nanos = duration.subsec_nanos();
 
     let message = if hours > 0 {
-        format!("Tiempo de ejecución: {} horas, {} minutos, {} segundos y {} milisegundos", hours, minutes, secs, millis)
+        format!("Tiempo de ejecución: {} h, {} m, {} s y {} ms", hours, minutes, secs, millis)
     } else if minutes > 0 {
-        format!("Tiempo de ejecución: {} minutos, {} segundos y {} milisegundos", minutes, secs, millis)
+        format!("Tiempo de ejecución: {} m, {} s y {} ms", minutes, secs, millis)
     } else if secs > 0 {
-        format!("Tiempo de ejecución: {} segundos y {} milisegundos", secs, millis)
+        format!("Tiempo de ejecución: {} s y {} ms", secs, millis)
     } else if millis > 0 {
-        format!("Tiempo de ejecución: {} milisegundos y {} nanosegundos", millis, nanos)
+        format!("Tiempo de ejecución: {} ms y {} ns", millis, nanos)
     } else {
-        format!("Tiempo de ejecución: {} nanosegundos", nanos)
+        format!("Tiempo de ejecución: {} ns", nanos)
     };
 
     println!("{}", message);
