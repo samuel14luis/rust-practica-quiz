@@ -4,7 +4,7 @@ use std::time::{Instant, Duration};
 mod utils;
 
 pub fn get_title() -> &'static str {
-    return "Algortimo de ordenamiento por inserción";
+    return "Ordenamiento por inserción";
 }
 
 pub fn run() {

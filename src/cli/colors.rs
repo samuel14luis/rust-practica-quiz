@@ -1,14 +1,18 @@
-pub fn print_colored(text: &str, color: &str) {
-    let color_code = match color {
-        "red" => "\x1b[31m",
-        "green" => "\x1b[32m",
-        "yellow" => "\x1b[33m",
-        "blue" => "\x1b[34m",
-        "magenta" => "\x1b[35m",
-        "cyan" => "\x1b[36m",
-        "white" => "\x1b[37m",
-        _ => "\x1b[0m", // Default color
-    };
+pub mod selector {
+    pub const RED: &str = "\x1b[31m";
+    pub const GREEN: &str = "\x1b[32m";
+    pub const YELLOW: &str = "\x1b[33m";
+    pub const BLUE: &str = "\x1b[34m";
+    pub const MAGENTA: &str = "\x1b[35m";
+    pub const CYAN: &str = "\x1b[36m";
+    pub const WHITE: &str = "\x1b[37m";
+    pub const RESET: &str = "\x1b[0m";
+}
 
-    println!("{}{}{}", color_code, text, "\x1b[0m"); // Reset to default color after printing
+pub fn print_colored(text: &str, color: &str, in_line: bool) {
+    if in_line {
+        print!("{}{}{}", color, text, selector::RESET);
+    } else {
+        println!("{}{}{}", color, text, selector::RESET);
+    }
 }

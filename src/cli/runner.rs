@@ -1,5 +1,7 @@
 use std::thread;
 
+mod colors;
+
 #[path = "../exercises/fibonacci.rs"]
 mod fibonacci;
 
@@ -88,16 +90,26 @@ pub fn run() {
 fn print_menu(menu_items: Vec<&str>) {
     one_sec_sleep();
     clean_screen();
-    println!("Selecciona una opción:");
+
+    let frame_width = 40;
+    let frame_line = "-".repeat(frame_width);
+
+    print_blue(&frame_line);
+    print_blue("Selecciona una opción:");
+    print_blue(&frame_line);
+
     for (i, item) in menu_items.iter().enumerate() {
         ms_sleep(if menu_items.len() <= 5 { 150 } else { 90 } );
         println!("{}. {}", i + 1, item);
     }
+
+    print_blue(&frame_line);
 }
 
 fn stop() {
     clean_screen();
-    println!("Cerrando la sesión...");
+    print_blue("Cerrando la sesión...");
+    one_sec_sleep();
 }
 
 fn one_sec_sleep() {
@@ -111,4 +123,8 @@ fn ms_sleep(milliseconds: u64) {
 fn clean_screen() {
     // Secuencia de escape ANSI para limpiar la pantalla
     print!("\x1B[2J\x1B[1;1H");
+}
+
+fn print_blue(text: &str) {
+    colors::print_colored(text, colors::selector::BLUE, false);
 }
