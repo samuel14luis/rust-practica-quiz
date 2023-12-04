@@ -36,7 +36,6 @@ pub fn run() {
     println!("Elemento medio: Inicial {} - Final {}", middle_element, sorted_arr[n / 2]);
     println!("Último elemento: Inicial {} - Final {}", last_element, sorted_arr[n - 1]);
 
-
     utils::show_duration(duration);
     utils::show_press_enter();
 }
