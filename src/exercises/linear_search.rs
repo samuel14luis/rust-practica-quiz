@@ -22,14 +22,9 @@ pub fn run() {
     let n: usize = utils::read_usize();
 
     let start = Instant::now();
+
     // hacer una búsqueda lineal
-    let mut index = -1;
-    for i in 0..numbers.len() {
-        if numbers[i] == n {
-            index = i as i32;
-            break;
-        }
-    }
+    let index: i32 = linear_search(numbers, n);
 
     let duration: Duration = start.elapsed();
 
@@ -41,4 +36,16 @@ pub fn run() {
 
     utils::show_duration(duration);
     utils::show_press_enter();
+}
+
+fn linear_search(arr: Vec<usize>, n: usize) -> i32 {
+    let mut index = -1;
+    for i in 0..arr.len() {
+        if arr[i] == n {
+            index = i as i32;
+            break;
+        }
+    }
+
+    return index;
 }
