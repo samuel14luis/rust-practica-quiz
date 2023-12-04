@@ -1,4 +1,3 @@
-use std::io;
 use std::time::{Instant, Duration};
 
 #[path = "../utils/utils.rs"]

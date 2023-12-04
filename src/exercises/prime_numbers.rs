@@ -1,4 +1,3 @@
-use std::io;
 use std::time::{Instant, Duration};
 
 #[path = "../utils/utils.rs"]
@@ -10,17 +9,7 @@ pub fn get_title() -> &'static str {
 
 pub fn run() {
     println!("Ingresa cuantos números primos deseas ver.");
-
-    let mut n = String::new();
-
-    io::stdin()
-        .read_line(&mut n)
-        .expect("Falla al leer la linea");
-
-    let n: usize = n
-        .trim()
-        .parse()
-        .expect("Se ingréso un valor no numérico");
+    let n: usize = utils::read_usize();
 
 
     let start = Instant::now();

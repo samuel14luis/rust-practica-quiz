@@ -1,5 +1,3 @@
-use std::io;
-
 #[path = "../utils/utils.rs"]
 mod utils;
 
@@ -9,17 +7,7 @@ pub fn get_title() -> &'static str {
 
 pub fn run() {
     println!("Ingresa cuantos números de fibonacci deseas ver.");
-
-    let mut n = String::new();
-
-    io::stdin()
-        .read_line(&mut n)
-        .expect("Falla al leer la linea");
-
-    let n: usize = n
-        .trim()
-        .parse()
-        .expect("Se ingréso un valor no numérico");
+    let n: usize = utils::read_usize();
 
 
     let mut fib = vec![];
